@@ -18,6 +18,9 @@ class GdxSampleGame : ApplicationAdapter() {
     }
 
     override fun render(){
+        //clear screen
+        //DRY Don't Repeat Yourself
+        //WET
         Gdx.gl.glClearColor(1f, 0f, 0f, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 

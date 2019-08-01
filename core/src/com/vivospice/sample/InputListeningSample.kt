@@ -1,17 +1,19 @@
 package com.vivospice.sample
 
-import com.badlogic.gdx.*
-import com.badlogic.gdx.graphics.GL20
+//import com.badlogic.gdx.utils.Array as GdxArray
+import com.badlogic.gdx.Application
+import com.badlogic.gdx.ApplicationAdapter
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.graphics.OrthographicCamera
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.graphics.g2d.freetype.FreeType
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
-import com.vivospice.sample.utils.logger
-//import com.badlogic.gdx.utils.Array as GdxArray
 import com.vivospice.sample.utils.GdxArray
+import com.vivospice.sample.utils.clearScreen
+import com.vivospice.sample.utils.logger
+import com.vivospice.sample.utils.toInternalFile
 
 
 // typealias can be used in place of "as" after the import. This will best done in a separate util file.
@@ -42,7 +44,7 @@ class InputListeningSample : ApplicationAdapter(), InputProcessor {
         camera = OrthographicCamera()
         viewport = FitViewport(1080f, 720f, camera)
         batch = SpriteBatch()// public class SpriteBatch implements Batch ---- public interface Batch extends Disposable
-        font = BitmapFont(Gdx.files.internal("fonts/oswald-32.fnt")) // to get the file use Gdx files module
+        font = BitmapFont("fonts/oswald-32.fnt".toInternalFile()) // to get the file use Gdx files module
 
         Gdx.input.inputProcessor = this //sets to this being this class InputListeningSample
                     //inputProcessor is a setter from Input interface with method setInputProcessor (InputProcessor processor);
@@ -54,8 +56,7 @@ class InputListeningSample : ApplicationAdapter(), InputProcessor {
 
     override fun render() {
         //clear screen first//  every frame needs clearing and drawing.
-        Gdx.gl.glClearColor(0f,0f,0f, 1f) // black
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        clearScreen()
 
         //batch to draw something but must set projection matrix on the batch. Telling batch about camera position and
         //zoom value and the camera to use.

@@ -13,7 +13,9 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeType
 import com.badlogic.gdx.utils.reflect.ClassReflection
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import com.vivospice.sample.utils.clearScreen
 import com.vivospice.sample.utils.logger
+import com.vivospice.sample.utils.toInternalFile
 
 class ReflectionSample : ApplicationAdapter() {
     //Polling means it will run every frame.
@@ -39,7 +41,8 @@ class ReflectionSample : ApplicationAdapter() {
         camera = OrthographicCamera()
         viewport = FitViewport(1080f, 720f, camera)
         batch = SpriteBatch()// public class SpriteBatch implements Batch ---- public interface Batch extends Disposable
-        font = BitmapFont(Gdx.files.internal("fonts/oswald-32.fnt")) // to get the file use Gdx files module
+       // font = BitmapFont(Gdx.files.internal("fonts/oswald-32.fnt")) // to get the file use Gdx files module
+        font = BitmapFont("fonts/oswald-32.fnt".toInternalFile()) //from util file with fun String.toInternalFile extention function
 
         debugReflection<ReflectionSample>()
     }
@@ -50,8 +53,7 @@ class ReflectionSample : ApplicationAdapter() {
 
     override fun render() {
         //clear screen first//  every frame needs clearing and drawing.
-        Gdx.gl.glClearColor(0f,0f,0f, 1f) // black
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        clearScreen()
 
         //batch to draw something but must set projection matrix on the batch. Telling batch about camera position and
         //zoom value and the camera to use.
