@@ -90,6 +90,7 @@ class InputPollingSample : ApplicationAdapter() {
 
     //all methods that extends Disposable must be cleaned up resources/memory that these classes take.
     override fun dispose() {
+        log.debug("d")
         batch.dispose()
         font.dispose()
     }
