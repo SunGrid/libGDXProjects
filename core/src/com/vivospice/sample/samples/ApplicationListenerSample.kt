@@ -1,11 +1,12 @@
-package com.vivospice.sample
+package com.vivospice.sample.samples
 
 import com.badlogic.gdx.Application
 import com.badlogic.gdx.ApplicationListener
 import com.badlogic.gdx.Gdx
+import com.vivospice.sample.common.SampleBase
 import com.vivospice.sample.utils.logger
 
-class ApplicationListenerSample : ApplicationListener {
+class ApplicationListenerSample : SampleBase() {
 
     companion object {
         //call properties from companion object directly by using the class

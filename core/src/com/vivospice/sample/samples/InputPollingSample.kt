@@ -1,4 +1,4 @@
-package com.vivospice.sample
+package com.vivospice.sample.samples
 
 import com.badlogic.gdx.Application
 import com.badlogic.gdx.ApplicationAdapter
@@ -9,18 +9,18 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import com.vivospice.sample.common.SampleBase
 import com.vivospice.sample.utils.clearScreen
 import com.vivospice.sample.utils.logger
 import com.vivospice.sample.utils.toInternalFile
 
-class InputPollingSample : ApplicationAdapter() {
+class InputPollingSample : SampleBase() {
     //Polling means it will run every frame.
     //every frame asking libGdx if some key or button is pressed
 
-
-    companion object {
+    companion object{
         @JvmStatic
-        private val log = logger<ModuleInfoSample>()
+        private val log = logger<InputPollingSample>()
     }
 
     lateinit var camera: OrthographicCamera

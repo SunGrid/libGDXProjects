@@ -1,4 +1,4 @@
-package com.vivospice.sample
+package com.vivospice.sample.samples
 
 //import com.badlogic.gdx.utils.Array as GdxArray
 import com.badlogic.gdx.Application
@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import com.vivospice.sample.common.SampleBase
 import com.vivospice.sample.utils.GdxArray
 import com.vivospice.sample.utils.clearScreen
 import com.vivospice.sample.utils.logger
@@ -20,11 +21,11 @@ import com.vivospice.sample.utils.toInternalFile
 //typealias GdxArray<T> = com.badlogic.gdx.utils.Array<T>
 
 
-class InputListeningSample : ApplicationAdapter(), InputProcessor {
+class InputListeningSample : SampleBase() {
 
-    companion object {
+    companion object{
         @JvmStatic
-        private val log = logger<ModuleInfoSample>()
+        private val log = logger<InputListeningSample>()
     }
 
     lateinit var camera: OrthographicCamera

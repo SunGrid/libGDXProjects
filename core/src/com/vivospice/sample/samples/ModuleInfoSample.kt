@@ -1,11 +1,12 @@
-package com.vivospice.sample
+package com.vivospice.sample.samples
 
 import com.badlogic.gdx.Application
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
+import com.vivospice.sample.common.SampleBase
 import com.vivospice.sample.utils.logger
 
-class ModuleInfoSample : ApplicationAdapter() {
+class ModuleInfoSample : SampleBase() {
 
     companion object {
         @JvmStatic

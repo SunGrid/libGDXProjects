@@ -1,12 +1,13 @@
-package com.vivospice.sample
+package com.vivospice.sample.samples
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.vivospice.sample.common.SampleBase
 
-class GdxSampleGame : ApplicationAdapter() {
+class GdxGeneratedSample : SampleBase() {
     //SpriteBatch() cant' be used until application or framework boots itself
     // using lateinit requires var. val won't work.
     lateinit var batch : SpriteBatch // = SpriteBatch()

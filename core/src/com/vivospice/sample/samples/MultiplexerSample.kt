@@ -1,11 +1,12 @@
-package com.vivospice.sample
+package com.vivospice.sample.samples
 
 import com.badlogic.gdx.*
+import com.vivospice.sample.common.SampleBase
 import com.vivospice.sample.utils.logger
 
-class MultiplexerSample : ApplicationAdapter() {
+class MultiplexerSample : SampleBase() {
 
-    companion object {
+    companion object{
         @JvmStatic
         private val log = logger<MultiplexerSample>()
     }

@@ -40,7 +40,7 @@ class GdxSamplerLauncher : JFrame() {
             }
         })
 
-       // launchSample("com.vivospice.sample.InputPollingSample")
+       // launchSample("com.vivospice.sample.samples.InputPollingSample")
 
         //tell window/jframe to resize and layout components
         pack()
@@ -59,7 +59,7 @@ class GdxSamplerLauncher : JFrame() {
             weighty = 1.0 // fill empty space
         }
 
-        sampleList = JList(arrayOf("com.vivospice.sample.InputPollingSample"))
+        sampleList = JList(arrayOf("com.vivospice.sample.samples.InputPollingSample"))
         sampleList.fixedCellWidth = cellWidth
         sampleList.selectionMode = ListSelectionModel.SINGLE_SELECTION // one sample in window at a time
 
