@@ -3,6 +3,8 @@ package com.vivospice.sample.desktop
 import com.badlogic.gdx.ApplicationListener
 import com.badlogic.gdx.backends.lwjgl.LwjglAWTCanvas
 import com.badlogic.gdx.utils.reflect.ClassReflection
+import com.vivospice.sample.common.SampleFactory
+import com.vivospice.sample.common.SampleInfos
 import java.awt.BorderLayout
 import java.awt.Dimension
 import java.awt.GridBagConstraints
@@ -59,7 +61,7 @@ class GdxSamplerLauncher : JFrame() {
             weighty = 1.0 // fill empty space
         }
 
-        sampleList = JList(arrayOf("com.vivospice.sample.samples.InputPollingSample"))
+        sampleList = JList(SampleInfos.getSampleNames())
         sampleList.fixedCellWidth = cellWidth
         sampleList.selectionMode = ListSelectionModel.SINGLE_SELECTION // one sample in window at a time
 
@@ -113,15 +115,17 @@ class GdxSamplerLauncher : JFrame() {
             contentPane.remove(lwjglAWTCanvas?.canvas)
         }
 
-        //get class object by name
+/*        //get class object by name
         val sampleClass = ClassReflection.forName(name)
-
         // create new instance of sample class
-        val sample = ClassReflection.newInstance(sampleClass) as ApplicationListener
+        val sample = ClassReflection.newInstance(sampleClass) as ApplicationListener*/
 
-        lwjglAWTCanvas = LwjglAWTCanvas(sample)
-        lwjglAWTCanvas?.canvas?.size = Dimension(canvasWidth, windowHeight)
-        contentPane.add(lwjglAWTCanvas?.canvas, BorderLayout.CENTER)
+        if(!name.isNullOrBlank()) {
+            val sample = SampleFactory.newSample(name!!)
+            lwjglAWTCanvas = LwjglAWTCanvas(sample)
+            lwjglAWTCanvas?.canvas?.size = Dimension(canvasWidth, windowHeight)
+            contentPane.add(lwjglAWTCanvas?.canvas, BorderLayout.CENTER)
+        }
         pack() //must call pack method to resize and redraw layout
     }
 }
